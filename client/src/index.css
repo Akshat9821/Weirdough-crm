@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-serif-display/400.css";
+
+@theme {
+  --color-brand-brown: #3b1f0a;
+  --color-brand-amber: #e8a040;
+  --color-brand-cream: #f5d6a0;
+  --color-brand-bg: #faf6f0;
+  --color-brand-card: #ffffff;
+  --color-brand-text: #1a0f05;
+  --color-brand-muted: #8a6a50;
+  --color-alert-red: #e24b4a;
+  --color-badge-green-bg: #eaf3de;
+  --color-badge-green-text: #3b6d11;
+  --color-badge-amber-bg: #faeeda;
+  --color-badge-amber-text: #854f0b;
+  --color-badge-red-bg: #fcebeb;
+  --color-badge-red-text: #a32d2d;
+  --color-badge-blue-bg: #e6f1fb;
+  --color-badge-blue-text: #185fa5;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
+  --shadow-card: 0 4px 24px rgba(59, 31, 10, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes pulse-new {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-new {
+  animation: pulse-new 1s ease-in-out 3;
+}

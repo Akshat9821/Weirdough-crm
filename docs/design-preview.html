@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelloWeirdough CRM — Screen Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{--brown:#3B1F0A;--amber:#E8A040;--cream:#F5D6A0;--bg:#FAF6F0;--card:#fff;--bdr:rgba(59,31,10,0.1);--text:#1A0F05;--muted:#8A6A50;--gbg:#EAF3DE;--gtx:#3B6D11;--abg:#FAEEDA;--atx:#854F0B;--rbg:#FCEBEB;--rtx:#A32D2D;--bbg:#E6F1FB;--btx:#185FA5;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%;}
+
+/* COVER */
+.cover{background:var(--brown);padding:clamp(28px,6vw,60px) clamp(18px,5vw,52px) clamp(28px,5vw,52px);position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;right:-60px;top:-60px;width:min(300px,70vw);height:min(300px,70vw);border-radius:50%;background:rgba(232,160,64,0.07);}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,214,160,0.45);margin-bottom:10px;}
+.cover-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,7vw,44px);line-height:1.1;color:#F5D6A0;margin-bottom:10px;}
+.cover-title span{color:var(--amber);}
+.cover-sub{font-size:clamp(13px,2.2vw,15px);color:rgba(245,214,160,0.5);font-weight:300;line-height:1.65;max-width:460px;}
+.cover-meta{margin-top:28px;display:flex;gap:24px;flex-wrap:wrap;}
+.cs-num{font-size:clamp(18px,4vw,24px);font-weight:500;color:var(--amber);}
+.cs-lbl{font-size:10px;color:rgba(245,214,160,0.35);margin-top:1px;}
+
+/* SECTION DIVIDER */
+.secdiv{padding:clamp(24px,5vw,40px) clamp(16px,5vw,52px) clamp(12px,2vw,18px);display:flex;align-items:center;gap:12px;}
+.secdiv::after{content:'';flex:1;height:.5px;background:var(--bdr);}
+.sn{font-family:'DM Serif Display',serif;font-size:clamp(28px,6vw,44px);color:rgba(59,31,10,0.07);line-height:1;user-select:none;flex-shrink:0;}
+.sl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.st{font-size:clamp(15px,3.5vw,21px);font-weight:500;}
+
+/* SCREEN WRAPPER */
+.sw{padding:0 clamp(16px,5vw,52px) clamp(28px,4vw,48px);}
+.sdesc{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.65;max-width:580px;}
+
+/* SHELL */
+.shell{border-radius:14px;overflow:hidden;border:.5px solid var(--bdr);box-shadow:0 4px 24px rgba(59,31,10,0.08);background:var(--card);}
+
+/* TOP BAR */
+.tbar{background:var(--card);border-bottom:.5px solid var(--bdr);padding:0 14px;height:44px;display:flex;align-items:center;justify-content:space-between;}
+.ttl{font-size:13.5px;font-weight:500;}
+.tbr{display:flex;align-items:center;gap:7px;}
+.spill{display:flex;align-items:center;gap:5px;background:var(--bg);border:.5px solid var(--bdr);border-radius:20px;padding:4px 10px;font-size:11px;color:var(--muted);}
+.btnp{background:var(--amber);color:var(--brown);border:none;padding:5px 11px;border-radius:7px;font-size:11px;font-weight:500;display:flex;align-items:center;gap:4px;white-space:nowrap;cursor:pointer;}
+
+/* CONTENT */
+.ca{padding:13px 14px;background:var(--bg);}
+
+/* STATS */
+.srow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:11px;}
+@media(min-width:560px){.srow{grid-template-columns:repeat(4,1fr);}}
+.sc{background:var(--card);border-radius:10px;border:.5px solid var(--bdr);padding:10px 12px;}
+.sc-lbl{font-size:10px;color:var(--muted);margin-bottom:3px;display:flex;align-items:center;gap:4px;}
+.sc-lbl i{font-size:12px;}
+.sc-v{font-size:17px;font-weight:500;}
+.sc-s{font-size:10px;color:var(--muted);margin-top:1px;}
+
+/* CARD */
+.card{background:var(--card);border:.5px solid var(--bdr);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.ch{padding:9px 13px;border-bottom:.5px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:5px;}
+.ct{font-size:12.5px;font-weight:500;}
+
+/* TABLE */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table{width:100%;border-collapse:collapse;font-size:11.5px;min-width:380px;}
+th{text-align:left;padding:7px 13px;font-size:9.5px;font-weight:500;color:var(--muted);border-bottom:.5px solid var(--bdr);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+td{padding:8px 13px;border-bottom:.5px solid var(--bdr);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+
+/* BADGES */
+.badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;display:inline-block;white-space:nowrap;}
+.bg{background:var(--gbg);color:var(--gtx);}
+.ba{background:var(--abg);color:var(--atx);}
+.br{background:var(--rbg);color:var(--rtx);}
+.bb{background:var(--bbg);color:var(--btx);}
+
+/* EMPLOYEES */
+.egrid{display:grid;grid-template-columns:1fr;gap:8px;}
+@media(min-width:440px){.egrid{grid-template-columns:1fr 1fr;}}
+@media(min-width:720px){.egrid{grid-template-columns:repeat(3,1fr);}}
+.ecard{background:var(--card);border:.5px solid var(--bdr);border-radius:11px;padding:11px;}
+.etop{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.eav{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;flex-shrink:0;}
+.en{font-size:12px;font-weight:500;}
+.er{font-size:10px;color:var(--muted);}
+.estats{display:flex;gap:12px;padding-top:8px;border-top:.5px solid var(--bdr);}
+.estat{font-size:10px;color:var(--muted);}
+.estat span{font-weight:500;color:var(--text);display:block;font-size:12px;}
+
+/* INVENTORY */
+.igrid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:10px;}
+@media(min-width:440px){.igrid{grid-template-columns:1fr 1fr;}}
+.iitem{background:var(--card);border:.5px solid var(--bdr);border-radius:9px;padding:9px 11px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.ilft{display:flex;align-items:center;gap:8px;}
+.iico{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.inm{font-size:11.5px;font-weight:500;}
+.ict{font-size:10px;color:var(--muted);}
+.ist{font-size:14px;font-weight:500;text-align:right;}
+.iu{font-size:10px;color:var(--muted);}
+
+/* CUSTOMERS */
+.cucard{background:var(--card);border:.5px solid var(--bdr);border-radius:9px;padding:10px 12px;display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.cuinfo{flex:1;min-width:90px;}
+.custats{display:flex;gap:14px;margin-left:auto;}
+.custat{text-align:center;font-size:10px;color:var(--muted);}
+.custat span{display:block;font-size:12.5px;font-weight:500;color:var(--text);}
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;flex-shrink:0;}
+
+/* NOTIFICATIONS */
+.ngrid{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:540px){.ngrid{grid-template-columns:repeat(3,1fr);}}
+.nlbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.pfr{background:#1a1a1a;border-radius:24px;padding:9px 7px;max-width:240px;margin:0 auto;}
+.pscr{background:#f2f2f7;border-radius:17px;overflow:hidden;}
+.wah{background:#075E54;padding:8px 10px;display:flex;align-items:center;gap:6px;}
+.wav{width:24px;height:24px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;color:var(--brown);flex-shrink:0;}
+.wanm{font-size:11px;font-weight:500;color:#fff;}
+.wast{font-size:8.5px;color:rgba(255,255,255,0.5);}
+.wab{padding:7px 8px 10px;display:flex;flex-direction:column;gap:5px;}
+.wabb{background:#fff;border-radius:0 8px 8px 8px;padding:6px 8px;font-size:10.5px;line-height:1.45;color:#111;max-width:90%;}
+.watm{font-size:7.5px;color:#999;text-align:right;margin-top:2px;}
+.warep{background:#DCF8C6;border-radius:8px 0 8px 8px;padding:6px 8px;font-size:10.5px;color:#111;align-self:flex-end;}
+.smsscr{background:#f2f2f7;border-radius:17px;padding:9px 8px;}
+.smsbar{text-align:center;font-size:8.5px;color:#888;margin-bottom:6px;}
+.smsbub{background:#e5e5ea;border-radius:8px 8px 8px 2px;padding:6px 8px;font-size:10px;line-height:1.45;color:#111;}
+.smstm{font-size:7.5px;color:#999;text-align:center;margin-top:3px;}
+.pushscr{background:#fff;border-radius:17px;padding:9px 7px;}
+.pushno{background:#f2f2f7;border-radius:9px;padding:8px 9px;display:flex;gap:7px;}
+.pushic{width:28px;height:28px;border-radius:6px;background:var(--brown);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--amber);flex-shrink:0;}
+.pushtl{font-size:10px;font-weight:500;color:#111;}
+.pushbd{font-size:9.5px;color:#555;margin-top:1px;line-height:1.35;}
+.pushtm{font-size:8.5px;color:#999;margin-top:1px;}
+.pushacts{display:flex;gap:4px;margin-top:5px;}
+.pushbtn{flex:1;text-align:center;background:#e5e5ea;border-radius:6px;padding:3px 0;font-size:9.5px;color:#185FA5;font-weight:500;}
+
+/* INCOMING ORDER */
+.incwrap{display:flex;flex-direction:column;}
+@media(min-width:660px){.incwrap{flex-direction:row;}}
+.incsb{display:none;}
+@media(min-width:660px){.incsb{display:flex;flex-direction:column;width:180px;flex-shrink:0;background:var(--brown);}}
+.inctbar{background:var(--brown);padding:9px 13px;display:flex;align-items:center;gap:8px;}
+@media(min-width:660px){.inctbar{display:none;}}
+.itlogo{font-size:13px;font-weight:500;color:#F5D6A0;}
+.itsub{font-size:9.5px;color:rgba(245,214,160,0.35);}
+.ndot{width:6px;height:6px;border-radius:50%;background:#E24B4A;margin-left:auto;}
+.incol{background:var(--card);border-bottom:.5px solid var(--bdr);}
+@media(min-width:660px){.incol{width:200px;flex-shrink:0;border-bottom:none;border-right:.5px solid var(--bdr);}}
+.lhd{padding:8px 11px 6px;border-bottom:.5px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+.ltl{font-size:9px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.frow{display:flex;gap:5px;padding:6px 11px;border-bottom:.5px solid var(--bdr);}
+.fc{font-size:9.5px;padding:2px 7px;border-radius:20px;border:.5px solid var(--bdr);color:var(--muted);}
+.fc.on{background:var(--abg);color:var(--atx);border-color:#EF9F27;}
+.orow{padding:9px 11px;border-bottom:.5px solid var(--bdr);}
+.orow.nin{background:#FFF3E0;border-left:2.5px solid #E24B4A;}
+.orow.sel{background:#FFF8ED;border-left:2.5px solid var(--amber);}
+.oid{font-size:10.5px;font-weight:500;}
+.ocu{font-size:10px;color:var(--muted);margin:2px 0;}
+.opv{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.incd{flex:1;display:flex;flex-direction:column;background:var(--bg);}
+.inbanner{background:var(--brown);padding:10px 13px;display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;}
+.ibico{width:28px;height:28px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ibico i{font-size:13px;color:var(--brown);}
+.ibtx{flex:1;min-width:100px;}
+.ibtl{font-size:11.5px;font-weight:500;color:#F5D6A0;}
+.ibsub{font-size:9.5px;color:rgba(245,214,160,0.4);margin-top:1px;}
+.ibacts{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
+.btnacc{background:var(--amber);color:var(--brown);border:none;padding:4px 10px;border-radius:6px;font-size:10.5px;font-weight:500;cursor:pointer;}
+.btndec{background:rgba(255,255,255,0.08);color:#F5D6A0;border:.5px solid rgba(255,255,255,0.15);padding:4px 9px;border-radius:6px;font-size:10.5px;cursor:pointer;}
+.dbp{padding:10px 11px;}
+.dc{background:var(--card);border:.5px solid var(--bdr);border-radius:10px;margin-bottom:8px;overflow:hidden;}
+.dch{padding:8px 11px;border-bottom:.5px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+.dct{font-size:10.5px;font-weight:500;display:flex;align-items:center;gap:5px;}
+.dct i{font-size:12px;color:var(--muted);}
+.dcb{padding:9px 11px;}
+.ir{display:flex;justify-content:space-between;padding:4px 0;font-size:11px;border-bottom:.5px solid var(--bdr);}
+.ir:last-child{border-bottom:none;}
+.il{color:var(--muted);}
+.iv{font-weight:500;}
+.itemr{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:.5px solid var(--bdr);}
+.itemr:last-child{border-bottom:none;}
+.idot{width:23px;height:23px;border-radius:6px;background:var(--abg);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.idot i{font-size:11px;color:var(--atx);}
+.inm2{font-size:10.5px;font-weight:500;flex:1;}
+.iqty{font-size:10px;color:var(--muted);}
+.ipr{font-size:10.5px;font-weight:500;}
+.trow{display:flex;justify-content:space-between;padding:7px 11px;border-top:.5px solid var(--bdr);}
+.tlbl{font-size:11.5px;font-weight:500;}
+.tval{font-size:12.5px;font-weight:500;color:var(--atx);}
+.steps{display:flex;align-items:center;}
+.step{flex:1;text-align:center;}
+.stdot{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;margin:0 auto 2px;}
+.stdot.cur{background:var(--amber);color:var(--brown);}
+.stdot.td{background:var(--bg);color:var(--muted);border:.5px solid var(--bdr);}
+.stlbl{font-size:8px;color:var(--muted);}
+.stlbl.cur{color:var(--atx);font-weight:500;}
+.stln{flex:none;width:12px;height:.5px;background:var(--bdr);margin-bottom:10px;}
+/* sb nav */
+.sblogo{padding:15px 13px 11px;border-bottom:.5px solid rgba(255,255,255,0.06);}
+.sblogo .brd{font-size:12.5px;font-weight:500;color:#F5D6A0;}
+.sblogo .subs{font-size:9px;color:rgba(245,214,160,0.3);}
+.sbnav{flex:1;padding:8px 0;}
+.sbsec{font-size:8.5px;color:rgba(245,214,160,0.18);padding:10px 13px 3px;letter-spacing:.1em;text-transform:uppercase;}
+.sbitem{display:flex;align-items:center;gap:7px;padding:7px 13px;font-size:11.5px;color:rgba(245,214,160,0.4);border-left:2px solid transparent;}
+.sbitem.active{color:#F5D6A0;border-left-color:var(--amber);background:rgba(232,160,64,0.08);}
+.sbitem i{font-size:14px;}
+
+/* FOOTER */
+.footer{background:var(--brown);padding:clamp(22px,4vw,34px) clamp(16px,5vw,52px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:14px;}
+.fb{font-family:'DM Serif Display',serif;font-size:20px;color:#F5D6A0;}
+.fb span{color:var(--amber);}
+.fm{font-size:10.5px;color:rgba(245,214,160,0.28);text-align:right;line-height:1.8;}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="eyebrow">Screen preview document</div>
+  <div class="cover-title">Hello<span>Weird</span>dough<br>CRM</div>
+  <div class="cover-sub">Order & employee management platform for helloweirdough.in — bakery operations, simplified.</div>
+  <div class="cover-meta">
+    <div><div class="cs-num">6</div><div class="cs-lbl">Screens</div></div>
+    <div><div class="cs-num">4</div><div class="cs-lbl">Modules</div></div>
+    <div><div class="cs-num">3</div><div class="cs-lbl">Notification types</div></div>
+  </div>
+</div>
+
+<!-- 01 ORDERS -->
+<div class="secdiv"><div class="sn">01</div><div><div class="sl">Module</div><div class="st">Order Management</div></div></div>
+<div class="sw">
+  <div class="sdesc">Live order table with real-time status badges, daily revenue summary, and quick filters. Staff can track every order from placement to pickup in one view.</div>
+  <div class="shell">
+    <div class="tbar"><div class="ttl">Orders</div><div class="tbr"><div class="spill"><i class="ti ti-search" aria-hidden="true" style="font-size:11px"></i> Search…</div><div class="btnp"><i class="ti ti-plus" aria-hidden="true" style="font-size:11px"></i> New Order</div></div></div>
+    <div class="ca">
+      <div class="srow">
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-clock" aria-hidden="true"></i>Today's Orders</div><div class="sc-v">24</div><div class="sc-s">↑ 3 from yesterday</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-currency-rupee" aria-hidden="true"></i>Revenue</div><div class="sc-v">₹18,420</div><div class="sc-s">↑ 12% this week</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-loader" aria-hidden="true"></i>In Progress</div><div class="sc-v">7</div><div class="sc-s">2 ready for pickup</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-check" aria-hidden="true"></i>Completed</div><div class="sc-v">17</div><div class="sc-s">100% on time</div></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ct">Recent orders</div><div style="display:flex;gap:5px"><span class="badge ba">5 pending</span><span class="badge bb">7 in progress</span></div></div>
+        <div class="tw"><table><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Time</th></tr></thead><tbody>
+          <tr><td><b>#HWD-1042</b></td><td>Priya Mehta</td><td>Sourdough ×2, Croissant ×4</td><td>₹980</td><td><span class="badge bg">Ready</span></td><td>9:12 AM</td></tr>
+          <tr><td><b>#HWD-1041</b></td><td>Aryan Kapoor</td><td>Custom Birthday Cake</td><td>₹2,400</td><td><span class="badge bb">In Progress</span></td><td>8:55 AM</td></tr>
+          <tr><td><b>#HWD-1040</b></td><td>Sneha Joshi</td><td>Multigrain Loaf ×3</td><td>₹750</td><td><span class="badge ba">Pending</span></td><td>8:30 AM</td></tr>
+          <tr><td><b>#HWD-1039</b></td><td>Rahul Verma</td><td>Focaccia, Danish ×2</td><td>₹640</td><td><span class="badge bg">Delivered</span></td><td>8:10 AM</td></tr>
+          <tr><td><b>#HWD-1038</b></td><td>Meera Nair</td><td>Brioche ×1, Muffin ×6</td><td>₹1,120</td><td><span class="badge br">Cancelled</span></td><td>7:45 AM</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 EMPLOYEES -->
+<div class="secdiv"><div class="sn">02</div><div><div class="sl">Module</div><div class="st">Employee Management</div></div></div>
+<div class="sw">
+  <div class="sdesc">Staff cards showing shift status, role, experience, and ratings. Quickly see who's on shift and who needs cover.</div>
+  <div class="shell">
+    <div class="tbar"><div class="ttl">Employees</div><div class="tbr"><div class="spill"><i class="ti ti-search" aria-hidden="true" style="font-size:11px"></i> Search…</div><div class="btnp"><i class="ti ti-plus" aria-hidden="true" style="font-size:11px"></i> Add Employee</div></div></div>
+    <div class="ca">
+      <div class="srow">
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-users" aria-hidden="true"></i>Total Staff</div><div class="sc-v">14</div><div class="sc-s">2 on leave today</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-clock" aria-hidden="true"></i>On Shift</div><div class="sc-v">9</div><div class="sc-s">3 shifts today</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-star" aria-hidden="true"></i>Avg Rating</div><div class="sc-v">4.7</div><div class="sc-s">Based on reviews</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-calendar" aria-hidden="true"></i>Open Slots</div><div class="sc-v">3</div><div class="sc-s">This weekend</div></div>
+      </div>
+      <div class="egrid">
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#FAEEDA;color:#854F0B;width:30px;height:30px;font-size:10px;">AM</div><div style="flex:1"><div class="en">Asha Menon</div><div class="er">Head Baker</div></div><span class="badge bg">On shift</span></div><div class="estats"><div class="estat"><span>6 yrs</span>Exp</div><div class="estat"><span>Morning</span>Shift</div><div class="estat"><span>4.9★</span>Rating</div></div></div>
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#E6F1FB;color:#185FA5;width:30px;height:30px;font-size:10px;">RK</div><div style="flex:1"><div class="en">Rohan Kumar</div><div class="er">Cake Decorator</div></div><span class="badge bg">On shift</span></div><div class="estats"><div class="estat"><span>3 yrs</span>Exp</div><div class="estat"><span>Morning</span>Shift</div><div class="estat"><span>4.7★</span>Rating</div></div></div>
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#EAF3DE;color:#3B6D11;width:30px;height:30px;font-size:10px;">NP</div><div style="flex:1"><div class="en">Nisha Patel</div><div class="er">Counter Staff</div></div><span class="badge ba">On leave</span></div><div class="estats"><div class="estat"><span>1 yr</span>Exp</div><div class="estat"><span>—</span>Shift</div><div class="estat"><span>4.5★</span>Rating</div></div></div>
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#FBEAF0;color:#993556;width:30px;height:30px;font-size:10px;">DP</div><div style="flex:1"><div class="en">Dev Pillai</div><div class="er">Baker</div></div><span class="badge bb">Evening</span></div><div class="estats"><div class="estat"><span>4 yrs</span>Exp</div><div class="estat"><span>Evening</span>Shift</div><div class="estat"><span>4.8★</span>Rating</div></div></div>
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#E1F5EE;color:#0F6E56;width:30px;height:30px;font-size:10px;">SB</div><div style="flex:1"><div class="en">Simran Batra</div><div class="er">Delivery</div></div><span class="badge bg">On shift</span></div><div class="estats"><div class="estat"><span>2 yrs</span>Exp</div><div class="estat"><span>Morning</span>Shift</div><div class="estat"><span>4.6★</span>Rating</div></div></div>
+        <div class="ecard"><div class="etop"><div class="eav av" style="background:#FAECE7;color:#993C1D;width:30px;height:30px;font-size:10px;">VT</div><div style="flex:1"><div class="en">Vijay Thomas</div><div class="er">Packaging</div></div><span class="badge bg">On shift</span></div><div class="estats"><div class="estat"><span>1.5yr</span>Exp</div><div class="estat"><span>Morning</span>Shift</div><div class="estat"><span>4.4★</span>Rating</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 INVENTORY -->
+<div class="secdiv"><div class="sn">03</div><div><div class="sl">Module</div><div class="st">Inventory & Products</div></div></div>
+<div class="sw">
+  <div class="sdesc">Product stock grid with low-stock alerts. Raw materials table tracks reorder thresholds so the kitchen never runs dry mid-bake.</div>
+  <div class="shell">
+    <div class="tbar"><div class="ttl">Inventory</div><div class="tbr"><div class="spill"><i class="ti ti-search" aria-hidden="true" style="font-size:11px"></i> Search…</div><div class="btnp"><i class="ti ti-plus" aria-hidden="true" style="font-size:11px"></i> Add Product</div></div></div>
+    <div class="ca">
+      <div class="srow">
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-box" aria-hidden="true"></i>Total SKUs</div><div class="sc-v">32</div><div class="sc-s">8 categories</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-alert-triangle" aria-hidden="true"></i>Low Stock</div><div class="sc-v" style="color:#A32D2D">4</div><div class="sc-s">Reorder needed</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-currency-rupee" aria-hidden="true"></i>Stock Value</div><div class="sc-v">₹64,200</div><div class="sc-s">As of today</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-trending-up" aria-hidden="true"></i>Top Seller</div><div class="sc-v" style="font-size:12px">Sourdough</div><div class="sc-s">42 sold this week</div></div>
+      </div>
+      <div class="igrid">
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#FAEEDA;color:#854F0B"><i class="ti ti-bread" aria-hidden="true"></i></div><div><div class="inm">Classic Sourdough</div><div class="ict">Bread</div></div></div><div><div class="ist">28</div><div class="iu">loaves</div></div></div>
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#FBEAF0;color:#993556"><i class="ti ti-cookie" aria-hidden="true"></i></div><div><div class="inm">Butter Croissant</div><div class="ict">Pastry</div></div></div><div><div class="ist" style="color:#A32D2D">5</div><div class="iu">units</div></div></div>
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#EAF3DE;color:#3B6D11"><i class="ti ti-bread" aria-hidden="true"></i></div><div><div class="inm">Multigrain Loaf</div><div class="ict">Bread</div></div></div><div><div class="ist">14</div><div class="iu">loaves</div></div></div>
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#E1F5EE;color:#0F6E56"><i class="ti ti-cake" aria-hidden="true"></i></div><div><div class="inm">Custom Cakes</div><div class="ict">Specialty</div></div></div><div><div class="ist">3</div><div class="iu">pending</div></div></div>
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#E6F1FB;color:#185FA5"><i class="ti ti-cookie" aria-hidden="true"></i></div><div><div class="inm">Blueberry Muffin</div><div class="ict">Muffins</div></div></div><div><div class="ist" style="color:#A32D2D">6</div><div class="iu">units</div></div></div>
+        <div class="iitem"><div class="ilft"><div class="iico" style="background:#FAECE7;color:#993C1D"><i class="ti ti-bread" aria-hidden="true"></i></div><div><div class="inm">Focaccia</div><div class="ict">Bread</div></div></div><div><div class="ist">11</div><div class="iu">pieces</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ct">Raw materials</div><span class="badge br">4 items low</span></div>
+        <div class="tw"><table><thead><tr><th>Material</th><th>Stock</th><th>Min. required</th><th>Status</th></tr></thead><tbody>
+          <tr><td>All-purpose flour</td><td>48 kg</td><td>30 kg</td><td><span class="badge bg">OK</span></td></tr>
+          <tr><td>Unsalted butter</td><td>6 kg</td><td>10 kg</td><td><span class="badge br">Low</span></td></tr>
+          <tr><td>Active dry yeast</td><td>1.2 kg</td><td>2 kg</td><td><span class="badge br">Low</span></td></tr>
+          <tr><td>Eggs</td><td>140 pcs</td><td>60 pcs</td><td><span class="badge bg">OK</span></td></tr>
+          <tr><td>Sourdough starter</td><td>0.8 kg</td><td>1 kg</td><td><span class="badge ba">Low</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 CUSTOMERS -->
+<div class="secdiv"><div class="sn">04</div><div><div class="sl">Module</div><div class="st">Customer Records</div></div></div>
+<div class="sw">
+  <div class="sdesc">Customer profiles with lifetime value, order count, and VIP tagging. Identify your most loyal regulars and track growth month over month.</div>
+  <div class="shell">
+    <div class="tbar"><div class="ttl">Customers</div><div class="tbr"><div class="spill"><i class="ti ti-search" aria-hidden="true" style="font-size:11px"></i> Search…</div><div class="btnp"><i class="ti ti-plus" aria-hidden="true" style="font-size:11px"></i> Add</div></div></div>
+    <div class="ca">
+      <div class="srow">
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-heart" aria-hidden="true"></i>Total</div><div class="sc-v">342</div><div class="sc-s">+18 this month</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-repeat" aria-hidden="true"></i>Returning</div><div class="sc-v">68%</div><div class="sc-s">Above avg</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-star" aria-hidden="true"></i>Avg Order</div><div class="sc-v">₹840</div><div class="sc-s">↑ 5% vs last month</div></div>
+        <div class="sc"><div class="sc-lbl"><i class="ti ti-crown" aria-hidden="true"></i>VIPs</div><div class="sc-v">24</div><div class="sc-s">₹2000+ spend</div></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ct">Top customers</div><div class="btnp" style="font-size:10px;padding:4px 8px"><i class="ti ti-mail" aria-hidden="true" style="font-size:10px"></i> Newsletter</div></div>
+        <div style="padding:9px 11px;display:flex;flex-direction:column;gap:7px">
+          <div class="cucard"><div class="av" style="background:#FAEEDA;color:#854F0B;width:30px;height:30px;font-size:10px;">PM</div><div class="cuinfo"><div style="font-size:12px;font-weight:500">Priya Mehta</div><div style="font-size:10px;color:var(--muted)">VIP · Faridabad</div></div><div class="custats"><div class="custat"><span>32</span>Orders</div><div class="custat"><span>₹28,400</span>Lifetime</div></div><span class="badge ba">VIP</span></div>
+          <div class="cucard"><div class="av" style="background:#E6F1FB;color:#185FA5;width:30px;height:30px;font-size:10px;">MN</div><div class="cuinfo"><div style="font-size:12px;font-weight:500">Meera Nair</div><div style="font-size:10px;color:var(--muted)">VIP · Faridabad</div></div><div class="custats"><div class="custat"><span>26</span>Orders</div><div class="custat"><span>₹21,600</span>Lifetime</div></div><span class="badge ba">VIP</span></div>
+          <div class="cucard"><div class="av" style="background:#EAF3DE;color:#3B6D11;width:30px;height:30px;font-size:10px;">AK</div><div class="cuinfo"><div style="font-size:12px;font-weight:500">Aryan Kapoor</div><div style="font-size:10px;color:var(--muted)">Regular · Delhi</div></div><div class="custats"><div class="custat"><span>18</span>Orders</div><div class="custat"><span>₹14,200</span>Lifetime</div></div><span class="badge bg">Active</span></div>
+          <div class="cucard"><div class="av" style="background:#FBEAF0;color:#993556;width:30px;height:30px;font-size:10px;">SJ</div><div class="cuinfo"><div style="font-size:12px;font-weight:500">Sneha Joshi</div><div style="font-size:10px;color:var(--muted)">New · Gurgaon</div></div><div class="custats"><div class="custat"><span>3</span>Orders</div><div class="custat"><span>₹2,100</span>Lifetime</div></div><span class="badge bb">New</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 INCOMING ORDER -->
+<div class="secdiv"><div class="sn">05</div><div><div class="sl">Flow</div><div class="st">Incoming Order View</div></div></div>
+<div class="sw">
+  <div class="sdesc">When a new order arrives from helloweirdough.in, it surfaces instantly — red alert banner, new entry at the top of the list, full breakdown and one-tap accept.</div>
+  <div class="shell">
+    <div class="inctbar"><div><div class="itlogo">helloweirdough</div><div class="itsub">bakery crm</div></div><div class="ndot"></div></div>
+    <div class="incwrap">
+      <div class="incsb">
+        <div class="sblogo"><div class="brd">helloweirdough</div><div class="subs">bakery crm</div></div>
+        <nav class="sbnav">
+          <div class="sbsec">Main</div>
+          <div class="sbitem active"><i class="ti ti-clipboard-list" aria-hidden="true"></i> Orders <div class="ndot"></div></div>
+          <div class="sbitem"><i class="ti ti-users" aria-hidden="true"></i> Employees</div>
+          <div class="sbitem"><i class="ti ti-box" aria-hidden="true"></i> Inventory</div>
+          <div class="sbitem"><i class="ti ti-heart" aria-hidden="true"></i> Customers</div>
+        </nav>
+      </div>
+      <div class="incol">
+        <div class="lhd"><span class="ltl">Today's orders</span><span class="badge br" style="font-size:8.5px">1 new</span></div>
+        <div class="frow"><span class="fc on">All</span><span class="fc">Pending</span><span class="fc">Active</span></div>
+        <div class="orow nin"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px"><span class="oid">#HWD-1043</span><span class="badge br" style="font-size:8.5px">New</span></div><div class="ocu">Karan Malhotra</div><div class="opv">Custom cake, Sourdough ×2</div><div style="font-size:9px;color:var(--muted);margin-top:2px">Just now · ₹2,940</div></div>
+        <div class="orow sel"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px"><span class="oid">#HWD-1042</span><span class="badge bb" style="font-size:8.5px">In progress</span></div><div class="ocu">Priya Mehta</div><div class="opv">Sourdough ×2, Croissant ×4</div><div style="font-size:9px;color:var(--muted);margin-top:2px">9:12 AM · ₹980</div></div>
+        <div class="orow"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px"><span class="oid">#HWD-1041</span><span class="badge ba" style="font-size:8.5px">Pending</span></div><div class="ocu">Aryan Kapoor</div><div class="opv">Custom Birthday Cake</div><div style="font-size:9px;color:var(--muted);margin-top:2px">8:55 AM · ₹2,400</div></div>
+      </div>
+      <div class="incd">
+        <div class="inbanner">
+          <div class="ibico"><i class="ti ti-bell" aria-hidden="true"></i></div>
+          <div class="ibtx"><div class="ibtl">New order — #HWD-1043</div><div class="ibsub">Karan Malhotra · via helloweirdough.in</div></div>
+          <div class="ibacts"><div class="btndec">Decline</div><div class="btnacc">Accept order</div></div>
+        </div>
+        <div class="dbp">
+          <div class="dc">
+            <div class="dch"><div class="dct"><i class="ti ti-user" aria-hidden="true"></i> Customer</div><span class="badge bb" style="font-size:8.5px">New</span></div>
+            <div class="dcb">
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px"><div class="av" style="background:#E6F1FB;color:#185FA5;width:28px;height:28px;font-size:10px;">KM</div><div><div style="font-size:11.5px;font-weight:500">Karan Malhotra</div><div style="font-size:9.5px;color:var(--muted)">+91 98103 45678 · Faridabad</div></div></div>
+              <div class="ir"><span class="il">Order type</span><span class="iv">Pickup</span></div>
+              <div class="ir"><span class="il">Ready by</span><span class="iv">12:30 PM today</span></div>
+              <div class="ir"><span class="il">Note</span><span class="iv" style="color:#854F0B;font-size:10px">"Happy Birthday Ria!" on cake</span></div>
+            </div>
+          </div>
+          <div class="dc">
+            <div class="dch"><div class="dct"><i class="ti ti-shopping-bag" aria-hidden="true"></i> Items</div></div>
+            <div class="dcb" style="padding-top:5px;padding-bottom:0">
+              <div class="itemr"><div class="idot"><i class="ti ti-cake" aria-hidden="true"></i></div><span class="inm2">Custom Birthday Cake (1 kg)</span><span class="iqty">×1</span><span class="ipr">₹2,200</span></div>
+              <div class="itemr"><div class="idot"><i class="ti ti-bread" aria-hidden="true"></i></div><span class="inm2">Classic Sourdough</span><span class="iqty">×2</span><span class="ipr">₹640</span></div>
+              <div class="itemr"><div class="idot"><i class="ti ti-cookie" aria-hidden="true"></i></div><span class="inm2">Butter Croissant</span><span class="iqty">×2</span><span class="ipr">₹100</span></div>
+            </div>
+            <div class="trow"><span class="tlbl">Total</span><span class="tval">₹2,940</span></div>
+          </div>
+          <div class="dc">
+            <div class="dch"><div class="dct"><i class="ti ti-progress" aria-hidden="true"></i> Progress</div></div>
+            <div class="dcb">
+              <div class="steps">
+                <div class="step"><div class="stdot cur"><i class="ti ti-check" aria-hidden="true" style="font-size:8px"></i></div><div class="stlbl cur">Received</div></div>
+                <div class="stln"></div>
+                <div class="step"><div class="stdot td">2</div><div class="stlbl">Baking</div></div>
+                <div class="stln"></div>
+                <div class="step"><div class="stdot td">3</div><div class="stlbl">Pack</div></div>
+                <div class="stln"></div>
+                <div class="step"><div class="stdot td">4</div><div class="stlbl">Ready</div></div>
+                <div class="stln"></div>
+                <div class="step"><div class="stdot td">5</div><div class="stlbl">Done</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 NOTIFICATIONS -->
+<div class="secdiv"><div class="sn">06</div><div><div class="sl">Feature</div><div class="st">Order Notifications</div></div></div>
+<div class="sw">
+  <div class="sdesc">Three-channel notification system — WhatsApp for customers, SMS as fallback, and push alerts for bakery staff. Every status change triggers the right message to the right person.</div>
+  <div class="ngrid">
+    <div>
+      <div class="nlbl">WhatsApp — customer</div>
+      <div class="pfr"><div class="pscr">
+        <div class="wah"><div class="wav">HW</div><div><div class="wanm">HelloWeirdough</div><div class="wast">Bakery · Faridabad</div></div></div>
+        <div class="wab">
+          <div class="wabb">Hi Priya! <b>Order #HWD-1042 confirmed.</b><br>Sourdough ×2, Croissant ×4<br>Total: <b>₹980</b> · Ready by <b>11:30 AM</b>.<div class="watm">9:14 AM</div></div>
+          <div class="wabb">Your <b>#HWD-1042 is ready!</b> Come pick up anytime.<div class="watm">11:28 AM</div></div>
+          <div class="warep">On my way, thanks!</div>
+        </div>
+      </div></div>
+    </div>
+    <div>
+      <div class="nlbl">SMS — fallback</div>
+      <div class="pfr"><div class="smsscr">
+        <div class="smsbar">HelloWeirdough · 9:14 AM</div>
+        <div class="smsbub">Order confirmed! #HWD-1042<br>Sourdough x2, Croissant x4<br>Amt: Rs.980 | Ready 11:30 AM<br>Call +91-98765-43210</div>
+        <div class="smstm">Delivered</div>
+      </div></div>
+    </div>
+    <div>
+      <div class="nlbl">Push — staff alert</div>
+      <div class="pfr"><div class="pushscr">
+        <div style="font-size:8.5px;color:#999;text-align:center;margin-bottom:5px">now</div>
+        <div class="pushno">
+          <div class="pushic"><i class="ti ti-bell" aria-hidden="true"></i></div>
+          <div style="flex:1">
+            <div class="pushtl">New order — #HWD-1043 <span class="badge br" style="font-size:7.5px">New</span></div>
+            <div class="pushbd">Karan Malhotra · Custom cake, Sourdough ×2 · Pickup 12:30 PM</div>
+            <div class="pushtm">Assigned: Asha Menon</div>
+            <div class="pushacts"><div class="pushbtn">Accept</div><div class="pushbtn">View</div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div><div class="fb">Hello<span>Weird</span>dough</div><div style="font-size:10.5px;color:rgba(245,214,160,0.25);margin-top:3px">helloweirdough.in · Faridabad</div></div>
+  <div class="fm">CRM Screen Preview<br>Orders · Employees · Inventory · Customers · Notifications<br>Generated May 2026</div>
+</div>
+
+</body>
+</html>
