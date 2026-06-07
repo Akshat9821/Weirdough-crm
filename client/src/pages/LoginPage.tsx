@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { isDemoMode } from '../lib/demoMode';
 import { useAuthStore } from '../stores/authStore';
 
 export function LoginPage() {
@@ -30,6 +31,11 @@ export function LoginPage() {
           hello<span className="text-brand-amber">weird</span>dough
         </h1>
         <p className="mt-1 text-sm text-brand-muted">Bakery CRM · Faridabad</p>
+        {isDemoMode && (
+          <p className="mt-2 rounded-lg bg-badge-amber-bg px-2 py-1 text-[10px] text-badge-amber-text">
+            Demo mode — sign in with the pre-filled credentials
+          </p>
+        )}
         <div className="mt-6 space-y-3">
           <label className="block text-xs text-brand-muted">
             Email

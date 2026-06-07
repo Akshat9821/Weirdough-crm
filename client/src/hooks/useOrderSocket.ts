@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { io } from 'socket.io-client';
+import { isDemoMode } from '../lib/demoMode';
 import { useOrdersStore } from '../stores/ordersStore';
 import { useNotificationStore } from '../stores/notificationStore';
 import type { Order, StaffNotification } from '../types';
@@ -11,6 +12,7 @@ export function useOrderSocket() {
   const addNotif = useNotificationStore((s) => s.add);
 
   useEffect(() => {
+    if (isDemoMode) return;
     const token = localStorage.getItem('hwd_token');
     if (!token) return;
 
